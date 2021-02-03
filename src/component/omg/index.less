@@ -1,0 +1,21 @@
+/*
+ * @Descripttion: omg less mixin
+ * @LastEditors: 翟懿博
+ */
+@import url('./less/config.less');
+@import url('./less/omg-func.less');
+@import url('./less/omg-x.less');
+@import url('./less/col-func.less');
+@import url('./less/col-var.less');
+@import url('./less/omg-query-var.less');
+
+// .omg()方法 以及对应class
+#omg-func();
+// .omg-x()方法 以及对应class，动态显隐
+#omg-x();
+// .omg-col-x-y() 和 .omg-col-x-offset-y()方法，以及对应class
+#col-func();
+// .omg-col[x-y]值 width: .omg-col[sm-2]
+#col-var();
+// 4种媒体查询值 @media .omg-query[sm] 和 @midia (min-width: .omg-query[sm-width])
+#omg-query-var();

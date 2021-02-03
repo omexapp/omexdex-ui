@@ -1,0 +1,10 @@
+
+const CommonActionType = {
+  SET_OMCHAIN_CLIENT: 'SET_OMCHAIN_CLIENT', // 设置omchain客户端
+  SET_PRIVATE_KEY: 'SET_PRIVATE_KEY', // 设置私钥
+  UPDATE_CURRENCY_LIST: 'UPDATE_CURRENCY_LIST', // 货币列表
+  UPDATE_CURRENCY_ID: 'UPDATE_CURRENCY_ID', // 货币id
+  UPDATE_CURRENCY_OBJ: 'UPDATE_CURRENCY_OBJ', // 货币obj
+  UPDATE_LATEST_HEIGHT: 'UPDATE_LATEST_HEIGHT', // 更新OMChain区块最新高度
+};
+export default CommonActionType;

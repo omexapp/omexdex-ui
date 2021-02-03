@@ -1,0 +1,114 @@
+// 对外暴露 .omg-col-x-y 方法
+
+@import url('./config.less');
+
+// 设置栅格列的CSS属性
+#setCol() {
+  box-sizing   : border-box;
+  width        : percentage(@value / @colCount);
+  padding-left : (@gutter / 2);
+  padding-right: (@gutter / 2);
+}
+
+// 对外接口
+#col-func() {
+  #col-y();
+  #col-x-y();
+}
+
+// 生成 .col-y() 和 .col-offset-y() 方法
+#col-y() {
+  // 默认设备，且最多是4列
+  @gutter  : @defaultMedia[@gutter];
+  @colCount: @defaultMedia[@colCount];
+  // 12的特殊身份，100%宽
+  .omg-col-12 {
+    @value: 4;
+    #setCol();
+  }
+  each(range(@defaultMedia[@colCount]), {
+      .omg-col-@{value} {
+        #setCol();
+      }
+
+      .omg-col-offset-@{value} {
+        margin-left: percentage(@value / @colCount);
+      }
+    }
+
+  );
+
+  // 其他设备
+  each(range(@_omg_col_max), {
+      each(#excludeDefaultSet(), .(@mediaVal, @mediaKey) {
+          @gutter   : @mediaVal[@gutter];
+          @colCount : @mediaVal[@colCount];
+
+          // .col-y()
+          .omg-col-@{value} {
+
+            @media @mediaVal[@mediaQuery] {
+              #setCol();
+            }
+          }
+
+          // .col-offset-y()
+          .omg-col-offset-@{value} {
+
+            @media @mediaVal[@mediaQuery] {
+              margin-left: percentage(@value / @colCount);
+            }
+          }
+
+          // .col-offset-right-y()
+          .omg-col-offset-right-@{value} {
+
+            @media @mediaVal[@mediaQuery] {
+              margin-right: percentage(@value / @colCount);
+            }
+          }
+        }
+
+      )
+    }
+
+  )
+}
+
+// 生成 .col-x-y() 和 .col-x-offset-y() 方法
+#col-x-y() {
+
+  // 阈值类型循环
+  each(#mediaSet(), .(@mediaVal, @mediaKey) {
+      @gutter : @mediaVal[@gutter];
+
+      each(range(@mediaVal[@colCount]), {
+          @colCount : @mediaVal[@colCount];
+
+          // .col-x-y()
+          .omg-col-@{mediaKey}-@{value} {
+            @media @mediaVal[@mediaQuery] {
+              #setCol();
+            }
+          }
+
+          // .col-x-offset-y()
+          .omg-col-@{mediaKey}-offset-@{value} {
+            @media @mediaVal[@mediaQuery] {
+              margin-left: percentage(@value / @colCount);
+            }
+          }
+
+          // .col-x-offset-right-y()
+          .omg-col-@{mediaKey}-offset-right-@{value} {
+            @media @mediaVal[@mediaQuery] {
+              margin-right: percentage(@value / @colCount);
+            }
+          }
+        }
+
+      )
+    }
+
+  )
+}

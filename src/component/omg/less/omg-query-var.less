@@ -1,0 +1,57 @@
+// 对外暴露 阈值变量
+
+@import url('./config.less');
+
+// 全局变量，避免IDE对@media的交验报错
+@omg-query-sm: #mediaQuerySM[@mediaQuery];
+@omg-query-md: #mediaQueryMD[@mediaQuery];
+@omg-query-lg: #mediaQueryLG[@mediaQuery];
+@omg-query-xl: #mediaQueryXL[@mediaQuery];
+
+#omg-query-var() {
+
+  // @media .omg-query[x] 媒体查询条件
+  .omg-query() {
+    each(#mediaSet(), .(@mediaVal, @mediaKey) {
+        @{mediaKey}: @mediaVal[@mediaQuery];
+      }
+
+    );
+  }
+
+  // @media (min-widht: .omg-query-mediaWidth[x]) 媒体宽度
+  .omg-query-mediaWidth() {
+    each(#mediaSet(), .(@mediaVal, @mediaKey) {
+        @{mediaKey}: @mediaVal[@mediaWidth]
+      }
+
+    );
+  }
+
+  // width: .omg-query-gutter[x] gutter宽度
+  .omg-query-gutter() {
+    each(#mediaSet(), .(@mediaVal, @mediaKey) {
+        @{mediaKey}: @mediaVal[@gutter];
+      }
+
+    );
+  }
+
+  // width: .omg-query-bogyPadding[x] body两侧留白
+  .omg-query-bodyPadding() {
+    each(#mediaSet(), .(@mediaVal, @mediaKey) {
+        @{mediaKey}: @mediaVal[@bodyPadding];
+      }
+
+    );
+  }
+
+  // width: .omg-query-designWidth[x] 设计稿宽度
+  .omg-query-designWidth() {
+    each(#mediaSet(), .(@mediaVal, @mediaKey) {
+        @{mediaKey}: @mediaVal[@designWidth];
+      }
+
+    );
+  }
+}
