@@ -12,8 +12,8 @@ base.output.path = path.resolve(__dirname, '../bundle');
 // 增加block strip能力
 base.module.rules.forEach((item) => {
   if (item.use && item.use[0] === 'eslint-loader') {
-    item.use.unshift('@om/strip-block-loader');
-    item.use.unshift('@om/strap-react-hot-loader');
+    item.use.unshift('@ok/strip-block-loader');
+    item.use.unshift('@ok/strap-react-hot-loader');
   }
 });
 

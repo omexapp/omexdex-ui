@@ -26,7 +26,7 @@ const base = {
         test: /\.(js|jsx)$/,
         // use: 'happypack/loader',
         loader: 'babel-loader',
-        exclude: /node_modules\/(?!@om\/)/,
+        exclude: /node_modules\/(?!@ok\/)/,
         options: {
           presets: ['@babel/preset-react'],
           plugins: [
@@ -34,7 +34,7 @@ const base = {
             ['@babel/plugin-proposal-class-properties', { loose: true }]
           ]
         }
-      // exclude: /node_modules\/(?!(@om|_@om_.*)\/)/,
+      // exclude: /node_modules\/(?!(@ok|_@ok_.*|@om|_@om_.*)\/)/,
       },
       {
         test: /\.css$/,
