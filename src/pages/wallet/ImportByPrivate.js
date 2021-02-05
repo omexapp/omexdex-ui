@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from '_component/Button';
 import { toLocale } from '_src/locale/react-locale';
-import { crypto } from '@omchain/javascript-sdk';
+import { crypto } from '@omexchain/javascript-sdk';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as commonActions from '_src/redux/actions/CommonAction';

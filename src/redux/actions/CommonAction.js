@@ -1,4 +1,4 @@
-import OMChainClient, { crypto } from '@omchain/javascript-sdk';
+import OMChainClient, { crypto } from '@omexchain/javascript-sdk';
 import { toLocale } from '_src/locale/react-locale';
 import CommonActionType from '../actionTypes/CommonActionType';
 import Config from '../../constants/Config';

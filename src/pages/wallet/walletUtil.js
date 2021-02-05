@@ -1,4 +1,4 @@
-import { crypto } from '@omchain/javascript-sdk';
+import { crypto } from '@omexchain/javascript-sdk';
 
 const walletUtil = {
   // sessionStroage中存入user信息
